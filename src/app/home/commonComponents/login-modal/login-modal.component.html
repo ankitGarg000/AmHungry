@@ -1,0 +1,63 @@
+  <div bsModal #childModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title pull-left">{{title}}</h4>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="hide()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+      <div class="col-lg-12">
+        <form class="form-horizontal" [formGroup]="loginForm" novalidate>
+          <div class="contact-form">
+            <div class="row">
+              <div *ngIf="!verify && !loader " class="col-lg-12 col-md-12 col-sm-12">
+                <div style="margin-bottom: 10px;" class="form-field">
+                  <i id="phone" class="fa fa-phone"></i>
+                  <a href="javascript:void(0)" (click)="loginForm.controls['phone'].valid && sendOtp(loginForm.controls['phone'].value)"><i id="send" class="fa fa-paper-plane"></i></a>
+                  <input type="tel" [formControl]="loginForm.controls['phone']" placeholder="Phone*" class="placeholder" name="phone">
+                  <div class="error" *ngIf="loginForm.controls['phone'].hasError('required') &&  loginForm.controls['phone'].touched">This field is required </div>
+                  <div class="error" *ngIf="loginForm.controls['phone'].hasError('pattern') &&  loginForm.controls['phone'].dirty">Should contain only numeric and starts from 7,8 or 9</div>
+                  <div class="error" *ngIf="loginForm.controls['phone'].dirty && !loginForm.controls['phone'].hasError('pattern') && loginForm.controls['phone'].hasError('maxlength')  ">Should contain 10 characters</div>
+                </div>
+                <p id="note"><b>Note:</b>&nbsp;An OTP will be send to this number</p>
+              </div>
+              <div *ngIf="loader" id="loading">
+                <div id="loading-center">
+                  <img src="/assets/images/ajax-loader.gif" alt="">
+                </div>
+              </div>
+
+              <div *ngIf="verify && !loader" class="col-lg-12 col-md-12 col-sm-12">
+                <div class="form-field">
+                  <i id="phone" class="fa fa-snowflake-o"></i>
+                  <input type="text" [formControl]="loginForm.controls['otp']" placeholder="Enter OTP*" class="placeholder" name="otp">
+                  <div class="error" *ngIf="!error && loginForm.controls['otp'].hasError('required') &&  loginForm.controls['otp'].touched">This field is required </div>
+                  <div class="error" *ngIf="!error && loginForm.controls['otp'].hasError('pattern') &&  loginForm.controls['otp'].dirty">should contain only 8 letters</div>
+                  <div class="error" *ngIf="error">{{error}}</div>
+                </div>
+                <div class="resend">
+                  <a href="javascript:void(0)" (click)="resendOtp(loginForm.value)">Resend OTP</a>
+                </div>
+              </div>
+            </div>
+            <div *ngIf="verify" class="form-submit mt-10 text-center">
+              <button id="submit" (click)="loginForm.controls['otp'].value && verifyOtp(loginForm.value)" [ngClass]="loginForm.invalid?'disable':''"
+                name="Submit" type="submit" value="Send" class="button">VERIFY</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+      </div>
+
+      <div class="modal-footer">
+        <div class="pull-left">
+          <button class="btn btn-default" (click)="hide()"> Cancel </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

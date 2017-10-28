@@ -1,0 +1,73 @@
+#imageOfFood{
+    animation: image 5s;
+    animation-iteration-count: infinite;
+}
+.menu:hover {
+    cursor: pointer;
+}
+.menuImage > img {
+    width: 225px;
+    border-radius: 50%;
+    display: block;
+    margin: auto;
+    animation: image 5s;
+    animation-iteration-count: infinite;
+}
+@keyframes image {
+    0% {
+        transform: rotateZ(0deg);
+        opacity: 0.5;
+    }
+    100% {
+        transform: rotateZ(360deg);
+        opacity: 1;
+    }
+}
+.menuName {
+    text-align: center;
+    margin-top: 20px;
+}
+.menuName > p {
+    font-size: 18px;
+    font-family: cursive;
+    color: brown;
+    animation: menuName 4s;
+    animation-iteration-count: infinite;
+}
+@keyframes menuName {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+
+#name{
+    animation: name 5s;
+    animation-iteration-count: infinite;
+}
+
+#priceOfFood{
+    animation: price 4s;
+    animation-iteration-count: infinite;
+}
+@keyframes price {
+    0% {
+        opacity: 0;
+    }
+    100% {
+
+        opacity: 1;
+    }
+}
+
+@media screen and (max-width: 400px){
+    .section-title h2 {
+        font-size: 17px;
+    }
+    .menuImage img {
+        width: 100%;
+    }
+}

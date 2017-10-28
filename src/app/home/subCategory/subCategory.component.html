@@ -1,0 +1,75 @@
+<!--=================================
+our-menu -->
+
+<div *ngIf="!loader" id="loading">
+  <div id="loading-center">
+    <img src="/assets/images/ajax-loader.gif" alt="">
+  </div>
+</div>
+
+<section *ngIf="loader" class="our-menu page-section-pt parallax pb-30">
+  <div style="background-image: url(/assets/images/bread_vegetables.jpg);background-size: cover;background-repeat: no-repeat;"
+    class="row">
+    <div id="menuTitle" class="col-lg-12 col-md-12">
+      <div class="section-title text-center">
+        <div class="title-separator">
+          <i class="glyph-icon flaticon-food-27"></i>
+        </div>
+        <h2> <span class="text-orange">{{subCategoryName}} </span></h2>
+        <ul class="page-breadcrumb">
+          <li><a [routerLink]="['../']"><i class="fa fa-home"></i> Home</a> <i class="fa fa-angle-double-right"></i></li>
+          <li><a [routerLink]="['./']">{{subCategoryName}}</a></li>
+        </ul>
+      </div>
+    </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4"></div>
+      <div class="col-md-4">
+        <p id="title"><i class="glyph-icon flaticon-food-27"></i> Menu</p>
+      </div>
+      <div class="col-md-4"></div>
+    </div>
+    <div class="container" style="margin-top: 7%;">
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="tabs clearfix">
+
+
+            <!-- Tab panes -->
+            <div class="tab-content">
+              <div role="tabpanel" style="display: block;" class="tab-pane fade in" id="tab-1">
+                <ng-container *ngIf="subCategories && subCategories.length!==0">
+                  <div class="row">
+                    <div *ngFor="let subCategory of subCategories" class="col-lg-6 col-md-6 col-sm-6">
+                      <div class="menu-body menu-left">
+                        <div class="menu-thumbnail">
+                          <img class="img-responsive center-block" [src]="subCategory.subCategoryImage.thumbnail" alt="">
+                        </div>
+                        <div class="menu-details">
+                          <div class="menu-title clearfix">
+                            <a id="openSubMenu" href="javascript(0):void" [routerLink]="['./', subCategory._id]">{{subCategory.name}}</a>
+                            <span class="price">{{subCategory.description}}</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </ng-container>
+                <div id="noItemContent" *ngIf='subCategories && subCategories.length===0' class="">
+                  <p>There are no items</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</section>
+
+<!--=================================
+special-menu -->
+<hr />
+<app-today-special-menu></app-today-special-menu>
+<hr />
+<app-how-it-works></app-how-it-works>

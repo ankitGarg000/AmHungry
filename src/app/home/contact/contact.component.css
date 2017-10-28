@@ -1,0 +1,33 @@
+.disable{
+    cursor: no-drop;
+    opacity: 0.5;
+}
+.error{
+    position: absolute;
+    top: 52px;
+    font-size: 11px;
+    color: red;
+    left: 50%;
+    text-align: center;
+    transform: translate(-50% , -50% );
+}
+.messageError{
+    position: absolute;
+    bottom: -26px;
+    font-size: 11px;
+    color: red;
+    left: 50%;
+    text-align: center;
+    transform: translate(-50% , -50% );
+}
+.contact-form .form-field i {
+    position: absolute;
+    left: 0;
+    color: #e93e21;
+    display: inline-block;
+    width: 45px;
+    height: 45px;
+    line-height: 45px;
+    text-align: center;
+    z-index: 99;
+}

@@ -1,0 +1,126 @@
+.description{
+    font-size: 21px;
+    position: absolute;
+    bottom: -21px;
+    left: 110px;
+    color: gray;
+}
+.basePrice{
+    color: brown;
+    font-size: 17px;
+}
+#menuTitle {
+    margin-top: 140px;
+}
+#title {
+    font-size: 36px;
+    width: 60%;
+    margin: auto;
+    border-bottom: 1px solid lightgrey;
+    font-family: initial;
+    text-align: center;
+    padding-bottom: 16px;
+    margin-top: 100px;
+}
+#minOrder {
+    display: inline;
+    position: absolute;
+    right: 0px;
+    bottom: -14px;
+}
+@media screen and (max-width: 1199px){
+    .description {
+        left: 127px;
+    }
+}
+@media screen and (max-width: 991px){
+    .description {
+        font-size: 17px;
+        left: 110px;
+    }
+}
+@media screen and (max-width: 767px){
+    #minOrder {
+        font-size: 12px;
+    }
+    .description {
+        font-size: 17px;
+    }
+}
+@media screen and (max-width: 600px){
+    .basePrice {
+        font-size: 14px;
+    }
+    .description {
+        font-size: 14px;
+        bottom: -25px;
+    }
+}
+@media screen and (max-width: 510px){
+    .description {
+        font-size: 12px;
+    }
+}
+@media screen and (max-width: 480px){
+    .menu-body .menu-thumbnail img {
+       float: left;
+    }
+    .menu-body.menu-left .menu-details .price {
+        left: 117px;
+        top: 69px;
+    }
+    .menu-body .menu-details .price {
+        font-size: 16px;
+    }
+    #openSubMenu {
+        margin-left: 16px;
+        font-size: 23px;
+    }
+    .menu-body.menu-left .menu-title {
+        margin-bottom: 12px;
+    }
+    #title {
+        font-size: 30px;
+        width: 50%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .menu-body .addCart #add {
+        top: 0px;
+    }
+    #minOrder {
+        bottom: -3px;
+    }
+    .description {
+        font-size: 12px;
+        bottom: -6px;
+        width: 46%;
+        left: 108px;
+        line-height: 18px;
+    }
+    .basePrice {
+        display: inline-block;
+        margin-left: 8px;
+        font-size: 15px;
+    }
+    .menu-body p {
+        margin-left: 108px;
+        margin-bottom: 0px;
+    }
+    .menu-body.menu-left .menu-title {
+        margin-bottom: 12px;
+        padding-bottom: 9px !important;
+    }
+    .carousel {
+        top: 77px;
+    }
+    .navbar{
+        min-height: 73px !important;
+        margin-bottom: 0px !important;
+    }
+}
+@media screen and (max-width: 400px){
+    #minOrder {
+        font-size: 10px;
+    }
+}

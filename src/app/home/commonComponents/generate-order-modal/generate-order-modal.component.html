@@ -1,0 +1,89 @@
+  <div bsModal #generateOrderModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title pull-left">{{title}}</h4>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="hide()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+      <div class="col-lg-12">
+        <form class="form-horizontal" [formGroup]="generateOrderForm" novalidate>
+          <div class="contact-form">
+            <div class="row">
+              <div class="col-lg-12 col-md-12 col-sm-12">
+                <div class="form-field">
+                  <i id="phone" class="fa fa-user-circle-o"></i>
+                  <input type="tel" [formControl]="generateOrderForm.controls['customerName']" placeholder="Name" class="placeholder" name="phone">
+                  <div class="error" *ngIf="generateOrderForm.controls['customerName'].hasError('required') &&  generateOrderForm.controls['customerName'].touched">This field is required </div>
+                  <div class="error" *ngIf="generateOrderForm.controls['customerName'].hasError('pattern') &&  generateOrderForm.controls['customerName'].dirty">Should contain only characters</div>
+                </div>
+              </div>
+              <div class="col-lg-12 col-md-12 col-sm-12">
+                <div class="form-field">
+                  <i id="phone" class="fa fa-address-book"></i>
+                  <input type="tel" [formControl]="generateOrderForm.controls['addressLine1']" placeholder="Address Line1" class="placeholder" name="addressLine1">
+                  <div class="error" *ngIf="generateOrderForm.controls['addressLine1'].hasError('required') &&  generateOrderForm.controls['addressLine1'].touched">This field is required </div>
+                </div>
+              </div>
+              <div class="col-lg-12 col-md-12 col-sm-12">
+                <div class="form-field">
+                  <i id="phone" class="fa fa-address-book"></i>
+                  <input type="tel" [formControl]="generateOrderForm.controls['addressLine2']" placeholder="Address Line2" class="placeholder" name="addressLine2">
+                  <div class="error" *ngIf="generateOrderForm.controls['addressLine2'].hasError('required') &&  generateOrderForm.controls['addressLine2'].touched">This field is required </div>
+                </div>
+              </div>
+              <div class="col-lg-12 col-md-12 col-sm-12">
+                <div class="form-field">
+                  <i id="phone" class="fa fa-location-arrow"></i>
+                  <input type="tel" [formControl]="generateOrderForm.controls['city']" placeholder="City" class="placeholder" name="city">
+                  <div class="error" *ngIf="generateOrderForm.controls['city'].hasError('required') &&  generateOrderForm.controls['city'].touched">This field is required </div>
+                  <div class="error" *ngIf="generateOrderForm.controls['city'].hasError('pattern') &&  generateOrderForm.controls['city'].dirty">Should contain only characters</div>
+                </div>
+              </div>
+              <div class="col-lg-12 col-md-12 col-sm-12">
+                <div class="form-field">
+                  <i id="phone" class="fa fa-location-arrow"></i>
+                  <input type="tel" [formControl]="generateOrderForm.controls['pincode']" placeholder="Pincode" class="placeholder" name="pincode">
+                  <div class="error" *ngIf="generateOrderForm.controls['pincode'].hasError('required') &&  generateOrderForm.controls['pincode'].touched">This field is required </div>
+                  <div class="error" *ngIf="generateOrderForm.controls['pincode'].hasError('pattern') &&  generateOrderForm.controls['pincode'].dirty">Should contain only numeric and contain 6 numerics</div>
+                </div>
+              </div>
+              <div class="col-lg-12 col-md-12 col-sm-12">
+                <div class="form-field">
+                  <select [formControl]="generateOrderForm.controls['orderMethod']">
+                    <option [selected]="generateOrderForm.controls['orderMethod'].value == select" value="select" selected>Select Payment Method</option>
+                    <option value="COD">COD</option>
+                    <option value="PAYTM">PAYTM</option>
+                  </select>
+                  <div class="error" *ngIf="generateOrderForm.controls['orderMethod'].hasError('required') &&  generateOrderForm.controls['orderMethod'].touched">This field is required </div>
+                  <div class="error" *ngIf="generateOrderForm.controls['orderMethod'].hasError('pattern') &&  generateOrderForm.controls['orderMethod'].dirty">Should contain only numeric and starts from 7,8 or 9</div>
+                  <div class="error" *ngIf="generateOrderForm.controls['orderMethod'].dirty && !generateOrderForm.controls['orderMethod'].hasError('pattern') && generateOrderForm.controls['orderMethod'].hasError('maxlength')  ">Should contain 10 characters</div>
+                </div>
+              </div>
+              <div *ngIf="loader" id="loading">
+                <div id="loading-center">
+                  <img src="/assets/images/ajax-loader.gif" alt="">
+                </div>
+              </div>
+            </div>
+            <div class="form-submit mt-10 text-center">
+              <button id="submit" (click)="!generateOrderForm.invalid && order(generateOrderForm.value)" [ngClass]="generateOrderForm.invalid?'disable':''"
+                name="Submit" type="submit" value="Send" class="button">Order</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+      </div>
+
+      <div class="modal-footer">
+        <div class="pull-left">
+          <button class="btn btn-default" (click)="hide()"> Cancel </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
