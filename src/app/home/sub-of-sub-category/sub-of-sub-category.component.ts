@@ -17,7 +17,8 @@ export class SubOfSubCategoryComponent implements OnInit {
   subOfSubCategories: any;
   subCategoryName: string;
   loader: boolean;
-  number: Number;
+  number: string;
+  phoneNumber: Number;
   added: Boolean;
   @ViewChild('childModal') childModal: LoginModalComponent;
   constructor(
@@ -40,11 +41,16 @@ export class SubOfSubCategoryComponent implements OnInit {
     });
     if(JSON.parse(localStorage.getItem('phoneNumber'))){
       this.number = JSON.parse(localStorage.getItem('phoneNumber')).number;
+      this.phoneNumber = parseInt(this.number);
+      console.log('this.number');
+      console.log(this.phoneNumber);
+      console.log(typeof this.phoneNumber);
     }
   }
 
   addItem(id: any) {
-    if (!this.number) {
+    console.log(this.phoneNumber);
+    if (this.phoneNumber===undefined) {
       this.childModal.show();
     } else {
       this.homeService.addItemToCart(id).subscribe((data) => {

@@ -52,6 +52,12 @@ span#basePrice {
     opacity: 0.4;
 }
 
+@media screen and (max-width: 1201px) and (min-width: 990px) {
+     .menu-body.menu-left .menu-details .itemPrice {
+        left: 128px;
+    }
+}
+
 @media screen and (max-width: 991px) {
     #title {
     font-size: 30px;

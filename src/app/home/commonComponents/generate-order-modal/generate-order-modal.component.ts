@@ -61,7 +61,6 @@ export class GenerateOrderModalComponent implements OnInit {
   }
 
   order(value: any) {
-    debugger;
     const data = {
       productId: this.products,
       offer: '1',

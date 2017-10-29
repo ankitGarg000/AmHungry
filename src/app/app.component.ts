@@ -6,5 +6,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  loader=false;
   title = 'app works!';
+
+  ngOnInit() {
+    this.loader=true;
+    setTimeout(() => {
+      this.loader = false;
+    }, 3000);
+  }
 }

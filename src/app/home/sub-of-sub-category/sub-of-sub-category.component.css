@@ -106,6 +106,9 @@
         margin-left: 108px;
         margin-bottom: 0px;
     }
+    .menu-body .product-name {
+        width: 40%;
+    }
     .menu-body.menu-left .menu-title {
         margin-bottom: 12px;
         padding-bottom: 9px !important;
