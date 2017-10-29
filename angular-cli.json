@@ -23,7 +23,8 @@
           "app/css/style.css",
           "app/css/flaticon.css",
           "app/css/component.css",
-          "app/css/responsive.css"
+          "app/css/responsive.css",
+          "../node_modules/font-awesome/css/font-awesome.css"
         ],
         "scripts": [],
         "environmentSource": "environments/environment.ts",

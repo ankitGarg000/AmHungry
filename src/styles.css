@@ -1,1 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
+.knife img {
+    width: 36px;
+    margin: auto;
+}
+.knife-cart {
+    margin-top: 100px;
+    margin-bottom: 10px;
+}
+.knife-cart img {
+    width: 36px;
+    margin: auto;
+}

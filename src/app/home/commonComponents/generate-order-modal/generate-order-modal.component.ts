@@ -61,6 +61,7 @@ export class GenerateOrderModalComponent implements OnInit {
   }
 
   order(value: any) {
+    debugger;
     const data = {
       productId: this.products,
       offer: '1',
@@ -75,7 +76,7 @@ export class GenerateOrderModalComponent implements OnInit {
     }
     console.log(data);
     this.homeService.generateOrder(data).subscribe((data) => {
-      if (data.statusCode===201) {
+      if (data.statusCode===200) {
         var toastOptions: ToastOptions = {
           title: ' Order Id:' + data.data,
           msg: data.message ,
