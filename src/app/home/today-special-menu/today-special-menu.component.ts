@@ -25,11 +25,11 @@ export class TodaySpecialMenuComponent implements OnInit {
   goToMenu(id: any) {
     if (JSON.parse(localStorage.getItem('phoneNumber'))) {
       const phoneNo = JSON.parse(localStorage.getItem('phoneNumber')).number;
-      if (phoneNo!==undefined) {
+      if (phoneNo !== undefined) {
         this.router.navigate(['/home', 'profile', id]);
+      } else {
+        this.router.navigate(['/home', id]);
       }
-    } else {
-      this.router.navigate(['/home', id]);
     }
   }
 }

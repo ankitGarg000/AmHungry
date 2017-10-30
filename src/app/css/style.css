@@ -1310,7 +1310,7 @@ blockquote cite { font-size: 14px; margin-top: 15px; display: block; font-weight
 /*************************
          footer
 *************************/
-.footer { position: relative;height: 450px; overflow: hidden;background: rgba(158, 18, 0, 0.48);  }
+.footer { position: relative;overflow: hidden;background: rgba(158, 18, 0, 0.48);  }
 .footer-logo { margin-bottom: 40px; margin-top: 48px; }
 .footer-logo img, .logo-sec img { height: 108px; }
 .footer-wel { margin-bottom: 60px; margin-top: 40px; }
