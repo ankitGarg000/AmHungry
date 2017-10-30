@@ -30,6 +30,8 @@ export class TodaySpecialMenuComponent implements OnInit {
       } else {
         this.router.navigate(['/home', id]);
       }
+    } else {
+      this.router.navigate(['/home', id]);
     }
   }
 }
