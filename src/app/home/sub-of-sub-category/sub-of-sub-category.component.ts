@@ -49,7 +49,6 @@ export class SubOfSubCategoryComponent implements OnInit {
   }
 
   addItem(id: any) {
-    debugger;
     console.log(this.phoneNumber);
     if (this.phoneNumber===undefined) {
       this.childModal.show();

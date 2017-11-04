@@ -268,7 +268,6 @@ var CartItemsComponent = (function () {
         this.toastyConfig.theme = 'material';
         this.itemArray = new Array();
         this.loader = true;
-        debugger;
         this.homeService.getCartDetails().subscribe(function (items) {
             _this.cartItems = items.data;
             console.log(_this.cartItems);
@@ -1905,7 +1904,6 @@ var SubOfSubCategoryComponent = (function () {
     };
     SubOfSubCategoryComponent.prototype.addItem = function (id) {
         var _this = this;
-        debugger;
         console.log(this.phoneNumber);
         if (this.phoneNumber === undefined) {
             this.childModal.show();

@@ -32,7 +32,6 @@ export class CartItemsComponent implements OnInit {
     this.toastyConfig.theme = 'material';
     this.itemArray = new Array();
     this.loader = true;
-    debugger;
     this.homeService.getCartDetails().subscribe(items => {
       this.cartItems = items.data;
       console.log(this.cartItems);
