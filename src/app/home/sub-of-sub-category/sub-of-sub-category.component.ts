@@ -49,16 +49,27 @@ export class SubOfSubCategoryComponent implements OnInit {
   }
 
   addItem(id: any) {
+    debugger;
     console.log(this.phoneNumber);
     if (this.phoneNumber===undefined) {
       this.childModal.show();
     } else {
       this.homeService.addItemToCart(id).subscribe((data) => {
-        if (data.statusCode !== 400) {
+        if (data.statusCode === 200 && data.data.type==='TIME_OVER') {
           this.homeService.sendCount(1);
           var toastOptions: ToastOptions = {
             title: "",
-            msg: "Added Successfully",
+            msg: data.data.customMessage,
+            showClose: true,
+            timeout: 2000,
+            theme: 'default',
+          };
+          this.toastyService.success(toastOptions);
+        } else if (data.statusCode === 200) {
+          this.homeService.sendCount(1);
+          var toastOptions: ToastOptions = {
+            title: "",
+            msg:'Added Successfully',
             showClose: true,
             timeout: 2000,
             theme: 'default',

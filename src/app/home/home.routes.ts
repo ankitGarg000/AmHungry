@@ -23,10 +23,6 @@ export const appHomeRoutes: Routes = [
             { path: ':categoryId', component: SubCategoryComponent},
             { path: ':categoryId/:subCategoryId', component: SubOfSubCategoryComponent},
         ]
-
-
-
-        
     },
     { path: '**', redirectTo: 'home', pathMatch: 'full' },
 ];

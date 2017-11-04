@@ -17,7 +17,7 @@
 }
 .header img{ 
     cursor: pointer; 
-    width: 95px; 
+    width: 80px; 
 }
 .navbar {
     border-radius: 0px;
@@ -32,6 +32,7 @@
 }
 .navbar-brand {
     margin-left: 20px !important;
+    padding: 3px 15px;
 }
 .navbar-default .navbar-nav>li>a {
     color: white;

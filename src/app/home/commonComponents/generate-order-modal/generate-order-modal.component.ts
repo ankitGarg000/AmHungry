@@ -19,13 +19,14 @@ export class GenerateOrderModalComponent implements OnInit {
   authorization: String;
   otp: Number;
   error: String;
+  cartItems: String;
   phoneNo1: Number;
   mySelect: String;
   accessToken: String;
   @ViewChild('generateOrderModal') public generateOrderModal: ModalDirective;
   @Input() title?: string;
   @Input() products?: Array<string>;
-  @Input() total?:string;
+  @Input() total?: string;
   phoneNo2: Number;
   constructor(
     private form: FormBuilder,
@@ -75,18 +76,21 @@ export class GenerateOrderModalComponent implements OnInit {
     }
     console.log(data);
     this.homeService.generateOrder(data).subscribe((data) => {
-      if (data.statusCode===200) {
+      if (data.statusCode === 200) {
         var toastOptions: ToastOptions = {
           title: ' Order Id:' + data.data,
-          msg: data.message ,
+          msg: data.message,
           showClose: true,
           timeout: 12000,
           theme: 'default',
         };
         this.toastyService.success(toastOptions);
         this.generateOrderModal.hide();
+        setTimeout(() => {
+          this.homeService.sendCount(-(this.products.length));
+          this.router.navigate(['/home/profile']);
+        }, 3000);
       }
     })
   }
-
 }
