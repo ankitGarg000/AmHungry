@@ -61,7 +61,7 @@ our-menu -->
                             <span class="itemPrice">{{cartItem.description}}</span>
                             <span id="basePrice"><b>Rs.</b>{{cartItem.basePriceUnit}}</span>
                             <div class="addCart">
-                              <a id="removeItem" (click)="removeItem(cartItem._id)">remove</a>
+                              <a id="removeItem" (click)="removeItemModalShow(cartItem._id)">remove</a>
                               <a [ngClass]="noOfItems==0?'disabled':''" (click)="cartItem.minValue > 1 && decrementNoOfItem(cartItem._id)" id="minus">-</a>
                               <p id="count">{{cartItem.minValue}}</p>
                               <a (click)="incrementNoOfItem(cartItem._id)" id="plus">+</a>
@@ -81,20 +81,13 @@ our-menu -->
             <div *ngIf='cartItems && cartItems.length!==0' class="paymentSummary">
               <hr />
               <p>Payment Summary</p>
-              <!--<div class="amount">
-                <p><b>Amount:</b> Rs. {{amount}}</p>
-              </div>-->
-              <!--<div class="offer">
-                <p><b>Discount:</b> {{discount}}%</p>
-              </div>-->
-              <!--<hr style="width: 10%;border-top: 5px solid #eee;float: left;">-->
               <div class="total">
                 <p><b>Total:</b> Rs. {{total}}</p>
               </div>
               <br />
             </div>
             <div class="form-submit mt-10 text-center">
-              <button (click)="cartItems && cartItems.length!==0 && generateOrder()" id="submit" [ngClass]="cartItems && cartItems.length===0?'disable':''"
+              <button *ngIf="itemArray.length !== 0"  (click)="cartItems && cartItems.length!==0 && generateOrder()" id="submit" [ngClass]="cartItems && cartItems.length===0?'disable':''"
                 name="Submit" type="submit" value="Generates" class="button">Generate Order</button>
             </div>
           </div>
@@ -103,6 +96,6 @@ our-menu -->
     </div>
 </section>
 <app-generate-order-modal #generateOrderModal [title]="'Generate Order'" [total]="total" [products]="itemArray"></app-generate-order-modal>
-
+<app-remove-item-modal #removeItemModal [title]="'Remove Item'" [itemId]="itemId"></app-remove-item-modal>
 <!--=================================
 special-menu -->

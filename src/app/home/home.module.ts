@@ -25,6 +25,7 @@ import { LoginModalComponent } from './commonComponents/login-modal/login-modal.
 import { ComponentLoaderFactory } from 'ng2-bootstrap/component-loader';
 import { GenerateOrderModalComponent } from './commonComponents/generate-order-modal/generate-order-modal.component';
 import { AboutComponent } from './about/about.component';
+import { RemoveItemModalComponent } from './commonComponents/remove-item-modal/remove-item-modal.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { AboutComponent } from './about/about.component';
     CartItemsComponent,
     LoginModalComponent,
     GenerateOrderModalComponent,
-    AboutComponent
+    AboutComponent,
+    RemoveItemModalComponent
   ],
   imports: [
     RouterModule.forChild(appHomeRoutes),
