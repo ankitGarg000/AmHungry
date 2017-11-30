@@ -60,20 +60,38 @@ span#basePrice {
 
 @media screen and (max-width: 991px) {
     #title {
-    font-size: 30px;
-    width: 31%;
-    margin-left: auto;
-    margin-right: auto;
-}
+        font-size: 30px;
+        width: 31%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    #openSubMenu {
+        font-size: 20px;
+    }
 }
 @media screen and (max-width: 767px){
     #openSubMenu {
-        font-size: 23px;
+        font-size: 15px;
+    }
+    .menu-body .addCart #minus {
+        right: 68px;
+        top: 0px;
+        padding: 8px 11px;
+        }
+    .menu-body .addCart #count {
+        right: 30px;
+        top: 6px;
+    }
+    .menu-body .addCart #plus {
+        right: 0px;
+        top: 0px;
+        padding: 8px;
     }
 }
 @media screen and (max-width: 600px){
     #openSubMenu {
-        font-size: 17px;
+        font-size: 14px;
+        width: 45%;
     }
 }
 @media screen and (max-width: 480px){
@@ -90,12 +108,14 @@ span#basePrice {
     .menu-body.menu-left .menu-details .itemPrice {
         font-size: 10px;
         width: 50%;
+        margin-top: 13px;
     }
 .menu-body .menu-details .price {
     font-size: 16px;
 }
 span#basePrice {
     left: 109px;
+    top: 69px;
 }
 #openSubMenu {
     margin-left: 7px;
@@ -131,17 +151,17 @@ span#basePrice {
         padding: 6px;
         padding-right: 8px;
         padding-left: 8px;
-        right: 70px;
+        right: 46px;
     }
     .menu-body .addCart #count {
-        right: 30px;
+        right: 17px;
         top: 4px;
     }
     .menu-body .addCart #plus {
         padding: 6px;
     }
     #openSubMenu {
-        width: 26%;
+        width: 34%;
     }
 }
 

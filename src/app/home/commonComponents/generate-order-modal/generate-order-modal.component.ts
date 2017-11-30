@@ -62,7 +62,6 @@ export class GenerateOrderModalComponent implements OnInit {
   }
 
   order(value: any) {
-    debugger;
     const data = {
       productId: this.products,
       offer: '1',
@@ -90,7 +89,7 @@ export class GenerateOrderModalComponent implements OnInit {
         setTimeout(() => {
           this.homeService.sendCount(-(this.products.length));
           this.router.navigate(['/home/profile']);
-        }, 3000);
+        }, 8000);
       }
     })
   }
