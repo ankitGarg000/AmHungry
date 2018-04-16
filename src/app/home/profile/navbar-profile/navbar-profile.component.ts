@@ -56,6 +56,7 @@ export class NavbarProfileComponent implements OnInit {
 
   logout() {
     localStorage.removeItem('phoneNumber');
+    localStorage.removeItem('showLoginModal');
     this.isLoggedIn = false;
     this.homeService.ToggleNavbar(true);
     this.router.navigate(['../']);

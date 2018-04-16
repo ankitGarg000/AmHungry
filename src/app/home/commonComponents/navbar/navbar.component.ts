@@ -45,6 +45,7 @@ export class NavbarComponent implements OnInit {
   }
   open(){
     this.childModal.show();
+    localStorage.setItem('showLoginModal', '1');
   }
 
 
