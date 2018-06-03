@@ -1327,7 +1327,17 @@ blockquote cite { font-size: 14px; margin-top: 15px; display: block; font-weight
 /*footer-bottom*/
 .footer .footer-bottom { position: relative; }
 .footer-bottom p a { color: #e93e21; }
-.footer .footer-social ul li a { display: block; font-size: 16px; color: #ffffff; background: rgba(0, 0, 0, 0.3); border-radius: 50%; width: 50px; height: 50px; line-height: 50px; text-align: center; }
+.footer .footer-social ul li a {
+    display: block;
+    font-size: 16px;
+    color: #ffffff;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    line-height: 33px;
+    text-align: center;
+}
 .footer .footer-social ul li a:hover { background: #e93e21; }
 
 /*  Tooltip Styles */
@@ -1448,4 +1458,17 @@ blockquote cite { font-size: 14px; margin-top: 15px; display: block; font-weight
 /*hack code ie 9*/
 @media all and (min-width:0\0) and (min-resolution:.001dpcm) {
     .no-csstransforms3d [data-book='book-1'].book, .no-js [data-book='book-1'].book, [data-book='book-1'].book .front { background: #1e2327 url(/assets/images/menu/menu-cover.png); background-size: cover; }
+}
+.dropdown-menu>li>a:focus {
+    background-color: transparent !important;
+    cursor: pointer;
+    font-weight: bold;
+}
+.dropdown-menu>li>a.disabled:hover {
+    cursor: no-drop !important;
+}
+.dropdown-menu>li>a.makeClikable {
+    background-color: transparent !important;
+    cursor: pointer;
+    font-weight: bold;
 }

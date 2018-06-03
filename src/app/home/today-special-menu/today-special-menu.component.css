@@ -3,9 +3,21 @@
     animation-iteration-count: infinite;
 }
 .menu:hover {
+    cursor: no-drop;
+}
+.activeMenu:hover {
     cursor: pointer;
 }
 .menuImage > img {
+    width: 225px;
+    border-radius: 50%;
+    display: block;
+    margin: auto;
+}
+.menuImage > img:hover {
+    cursor: no-drop;
+}
+.rotateImage > img {
     width: 225px;
     border-radius: 50%;
     display: block;
@@ -28,6 +40,20 @@
     margin-top: 20px;
 }
 .menuName > p {
+    font-size: 18px;
+    font-family: cursive;
+    color: brown;
+}
+.animateName {
+    text-align: center;
+    margin-top: 20px;
+}
+.animateName > p {
+    font-size: 18px;
+    font-family: cursive;
+    color: brown;
+}
+.animateName > p {
     font-size: 18px;
     font-family: cursive;
     color: brown;
@@ -70,4 +96,8 @@
     .menuImage img {
         width: 100%;
     }
+}
+
+.sat-sunday-menu {
+    margin-top: 20px;
 }

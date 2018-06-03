@@ -13,6 +13,7 @@ export class TodaySpecialMenuComponent implements OnInit {
 
 
   categories: any;
+  dayName: String;
   constructor(private homeService: HomeService, private router: Router) { }
 
   ngOnInit() {
@@ -20,11 +21,29 @@ export class TodaySpecialMenuComponent implements OnInit {
       this.categories = categories.data;
       console.log(this.categories);
     })
+    this.dayName = this.getWeekDayName();
+  }
+
+  getWeekDayName() {
+    var date = new Date();
+    var weekday = new Array(7);
+    weekday[0] = "SUNDAY";
+    weekday[1] = "Monday's Menu";
+    weekday[2] = "Tuesday";
+    weekday[3] = "Wednesday' Menu";
+    weekday[4] = "THURSDAY";
+    weekday[5] = "FRIDAY";
+    weekday[6] = "SATURDAY";
+
+    var dayName = weekday[date.getDay()];
+
+    return dayName;
   }
 
   goToMenu(id: any) {
-    if (JSON.parse(localStorage.getItem('phoneNumber'))) {
-      const phoneNo = JSON.parse(localStorage.getItem('phoneNumber')).number;
+    debugger;
+    const phoneNo = JSON.parse(localStorage.getItem('phoneNumber'));
+    if (phoneNo) {
       if (phoneNo !== undefined) {
         this.router.navigate(['/home', 'profile', id]);
       } else {

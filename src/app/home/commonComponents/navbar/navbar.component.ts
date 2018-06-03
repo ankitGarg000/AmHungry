@@ -26,6 +26,7 @@ export class NavbarComponent implements OnInit {
   authorization: String;
   otp: Number;
   error: String;
+  dayName: String;
   @ViewChild('childModal') childModal :LoginModalComponent;
   // @ViewChild('myModal') modal: ModalDirective;
   // @ContentChild(Modal) modal: Modal;
@@ -35,6 +36,7 @@ export class NavbarComponent implements OnInit {
       console.log(data);
       this.categories = data.data;
     });
+    this.dayName = this.getWeekDayName();
 
 
   }
@@ -48,6 +50,21 @@ export class NavbarComponent implements OnInit {
     localStorage.setItem('showLoginModal', '1');
   }
 
+  getWeekDayName() {
+    var date = new Date();
+    var weekday = new Array(7);
+    weekday[0] = "SUNDAY";
+    weekday[1] = "Monday's Menu";
+    weekday[2] = "Tuesday";
+    weekday[3] = "Wednesday' Menu";
+    weekday[4] = "THURSDAY";
+    weekday[5] = "FRIDAY";
+    weekday[6] = "SATURDAY";
+
+    var dayName = weekday[date.getDay()];
+
+    return dayName;
+  }
 
   // openExt():void {
   //   this.modal.open();
@@ -63,8 +80,9 @@ export class NavbarComponent implements OnInit {
   }
 
   openMenu(id: any) {
-    this.homeService.sendSubCategoryId(id);
-    this.router.navigate(['/home', id]);
+    debugger;
+      this.homeService.sendSubCategoryId(id);
+      this.router.navigate(['/home', id]);
   }
 
 

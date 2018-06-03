@@ -1,0 +1,11 @@
+.footer-text {
+    float: left;
+}
+.footer-text .text-white {
+    margin-top: 15px !important;
+}
+
+.footer-facebook-icon {
+    float: right;
+    margin-top: 11px;
+}

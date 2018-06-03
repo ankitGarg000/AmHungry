@@ -67,7 +67,15 @@
 .navbar-default .navbar-nav>.open>a:hover {
     background-color: transparent;
 }
-.dropdown-menu>li>a:focus, .dropdown-menu>li>a:hover {
+.dropdown-menu>li>a:focus {
+    background-color: transparent !important;
+    cursor: pointer;
+    font-weight: bold;
+}
+.dropdown-menu>li>a.disabled:hover {
+    cursor: no-drop !important;
+}
+.dropdown-menu>li>a.makeClikable {
     background-color: transparent !important;
     cursor: pointer;
     font-weight: bold;
@@ -154,6 +162,10 @@
         right: 6px;
         top: 6px;
     }
+}
+
+.amhungry-logo > img {
+    width: 120px !important;
 }
 
 /*@media screen and (max-width: 480px){

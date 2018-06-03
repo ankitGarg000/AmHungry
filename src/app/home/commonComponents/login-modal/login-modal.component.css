@@ -66,11 +66,11 @@
 .navbar-default .navbar-nav>.open>a:hover {
     background-color: transparent;
 }
-.dropdown-menu>li>a:focus, .dropdown-menu>li>a:hover {
+/*.dropdown-menu>li>a:focus, .dropdown-menu>li>a:hover {
     background-color: transparent !important;
     cursor: pointer;
     font-weight: bold;
-}
+}*/
 #send{ 
     display: inline-block; 
     width: 45px; 

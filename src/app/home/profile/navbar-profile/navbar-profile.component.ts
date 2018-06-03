@@ -25,12 +25,14 @@ export class NavbarProfileComponent implements OnInit {
   otp: Number;
   existsOrder: Number;
   Orders: Array<any>;
+  dayName: String;
 
   constructor(private homeService: HomeService, private router: Router) { 
      this.homeService.getCategories().subscribe((data) => {
       console.log(data);
       this.categories = data.data;
     });
+    this.dayName = this.getWeekDayName();
    }
 
   ngOnInit() {
@@ -51,6 +53,22 @@ export class NavbarProfileComponent implements OnInit {
     } else {
       this.isScrolled = false;
     }
+  }
+
+  getWeekDayName() {
+    var date = new Date();
+    var weekday = new Array(7);
+    weekday[0] = "SUNDAY";
+    weekday[1] = "Monday's Menu";
+    weekday[2] = "Tuesday";
+    weekday[3] = "Wednesday' Menu";
+    weekday[4] = "THURSDAY";
+    weekday[5] = "FRIDAY";
+    weekday[6] = "SATURDAY";
+
+    var dayName = weekday[date.getDay()];
+
+    return dayName;
   }
 
 
