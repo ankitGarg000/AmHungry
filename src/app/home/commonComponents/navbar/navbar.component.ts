@@ -5,6 +5,8 @@ import { ModalDirective, ModalModule } from 'ng2-bootstrap/ng2-bootstrap'
 // import {ModalModule} from "ngx-modal"
 import { LoginModalComponent } from '../login-modal/login-modal.component';
 import { Modal } from "ngx-modal";
+import _ from 'lodash';
+
 
 @Component({
   selector: 'app-navbar',
@@ -27,7 +29,16 @@ export class NavbarComponent implements OnInit {
   otp: Number;
   error: String;
   dayName: String;
-  @ViewChild('childModal') childModal :LoginModalComponent;
+  days: Array<string> = [
+    "SUNDAY",
+    "Monday's Menu",
+    "Tuesday",
+    "Wednesday' Menu",
+    "THURSDAY",
+    "FRIDAY",
+    "SATURDAY"
+  ];
+  @ViewChild('childModal') childModal: LoginModalComponent;
   // @ViewChild('myModal') modal: ModalDirective;
   // @ContentChild(Modal) modal: Modal;
 
@@ -45,23 +56,15 @@ export class NavbarComponent implements OnInit {
 
     // this.modal.show();
   }
-  open(){
+  open() {
     this.childModal.show();
     localStorage.setItem('showLoginModal', '1');
   }
 
   getWeekDayName() {
     var date = new Date();
-    var weekday = new Array(7);
-    weekday[0] = "SUNDAY";
-    weekday[1] = "Monday's Menu";
-    weekday[2] = "Tuesday";
-    weekday[3] = "Wednesday' Menu";
-    weekday[4] = "THURSDAY";
-    weekday[5] = "FRIDAY";
-    weekday[6] = "SATURDAY";
 
-    var dayName = weekday[date.getDay()];
+    var dayName = this.days[date.getDay()];
 
     return dayName;
   }
@@ -79,10 +82,11 @@ export class NavbarComponent implements OnInit {
     }
   }
 
-  openMenu(id: any) {
-    debugger;
-      this.homeService.sendSubCategoryId(id);
-      this.router.navigate(['/home', id]);
+  openMenu(name: any) {
+    const selectedDay = _.findIndex(this.categories, (category) => { return category.name === name });
+    const selectedMenu = this.categories[selectedDay];
+    this.homeService.sendSubCategoryId(selectedMenu._id);
+    this.router.navigate(['/home', selectedMenu._id]);
   }
 
 

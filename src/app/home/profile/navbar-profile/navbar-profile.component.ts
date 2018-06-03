@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { HomeService } from '../../home.service';
 import { Router, ActivatedRoute } from '@angular/router';
+import _ from 'lodash';
+
 
 
 
@@ -26,6 +28,15 @@ export class NavbarProfileComponent implements OnInit {
   existsOrder: Number;
   Orders: Array<any>;
   dayName: String;
+  days: Array<string> = [
+    "SUNDAY",
+    "Monday's Menu",
+    "Tuesday",
+    "Wednesday' Menu",
+    "THURSDAY",
+    "FRIDAY",
+    "SATURDAY"
+  ];
 
   constructor(private homeService: HomeService, private router: Router) { 
      this.homeService.getCategories().subscribe((data) => {
@@ -80,9 +91,11 @@ export class NavbarProfileComponent implements OnInit {
     this.router.navigate(['../']);
   }
 
-  openMenu(id: any) {
-    this.homeService.sendSubCategoryId(id);
-    this.router.navigate(['/home/profile', id]);
+  openMenu(name: String) {
+    const selectedDay = _.findIndex(this.categories, (category) => { return category.name === name });
+    const selectedMenu = this.categories[selectedDay];
+    this.homeService.sendSubCategoryId(selectedMenu._id);
+    this.router.navigate(['/home/profile', selectedMenu._id]);
   }
 
   goToCartItems(){

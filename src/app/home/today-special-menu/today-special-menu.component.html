@@ -6,9 +6,7 @@ special-menu -->
       <div class="section-title text-center">
         <div class="title-separator">
           <div class="knife ">
-                <!-- <i class="line col-xs-1"></i> -->
                 <img src="/assets/images/knife.png" class="img-responsive">
-                <!-- <i class="line col-xs-1"></i> -->
               </div>
         </div>
         <h2 class="text-white"> <span class="text-orange">Our Today’s</span> Special Menu</h2>
@@ -16,56 +14,14 @@ special-menu -->
       </div>
     </div>
   </div>
-  <!--<div class="row">
-    <div class="col-md-3">
-      <div class="menu">
-        <div class="menuImage">
-          <img src="/assets/images/profileThumb_1500732070149.jpg" />
-        </div>
-        <div class="menuName">
-          <p>Weekly/ Daily Meals</p>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-3">
-      <div class="menu">
-        <div class="menuImage">
-          <img src="/assets/images/profileThumb_1500657457745.jpg" />
-        </div>
-        <div class="menuName">
-          <p>Breakfast</p>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-3">
-      <div class="menu">
-        <div class="menuImage">
-          <img src="/assets/images/profileThumb_1500732722109.jpg" />
-        </div>
-        <div class="menuName">
-          <p>Kids Menu</p>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-3">
-      <div class="menu">
-        <div class="menuImage">
-          <img src="/assets/images/profileThumb_1500733156363.jpg" />
-        </div>
-        <div class="menuName">
-          <p>Night Food Card</p>
-        </div>
-      </div>
-    </div>
-  </div>-->
   <div class="row">
-    <div *ngFor="let category of categories;let i=index" class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
-      <div *ngIf="i<=3" (click)="category.name==dayName && goToMenu(category._id)" [ngClass]="category.name==dayName?'activeMenu':'menu'">
-        <div [ngClass]="category.name==dayName?'rotateImage':'menuImage'">
-          <img [src]="category.categoryImage.thumbnail" />
+    <div *ngFor="let day of days;let i=index" class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
+      <div *ngIf ="i<=3" (click)="dayName.name===day.name && goToMenu(day.name)" [ngClass]="dayName.name===day.name ?'activeMenu':'menu'">
+        <div [ngClass]="dayName.name===day.name ?'rotateImage':'menuImage'">
+          <img [src]="day.thumbnail" />
         </div>
-        <div [ngClass]="category.name==dayName?'animateName':'menuName'">
-          <p>{{category.name}}</p>
+        <div [ngClass]="dayName.name===day.name?'animateName':'menuName'">
+          <p>{{day.name}}</p>
         </div>
       </div>
     </div>
@@ -73,13 +29,13 @@ special-menu -->
   <div class="row sat-sunday-menu">
     <div class="col-xs-12 col-sm-0 col-md-0 col-lg-3">
     </div>
-    <div *ngFor="let category of categories;let i=index" class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
-      <div *ngIf="i>=4" (click)="category.name==dayName && goToMenu(category._id)" [ngClass]="category.name==dayName?'activeMenu':'menu'">
-        <div [ngClass]="category.name==dayName?'rotateImage':'menuImage'">
-          <img [src]="category.categoryImage.thumbnail" />
+    <div *ngFor="let day of days;let i=index" class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
+      <div *ngIf ="i>=4" (click)="dayName.name===day.name && goToMenu(day.name)" [ngClass]="dayName.name===day.name ?'activeMenu':'menu'">
+        <div [ngClass]="dayName.name===day.name ?'rotateImage':'menuImage'">
+          <img [src]="day.thumbnail" />
         </div>
-        <div [ngClass]="category.name==dayName?'animateName':'menuName'">
-          <p>{{category.name}}</p>
+        <div [ngClass]="dayName.name===day.name?'animateName':'menuName'">
+          <p>{{day.name}}</p>
         </div>
       </div>
     </div>

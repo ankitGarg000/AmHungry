@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { TodaySpecial } from './today-special-menu.inerface';
 import { HomeService } from '../home.service';
 import { Router, ActivatedRoute } from '@angular/router';
+import _ from 'lodash';
 
 
 @Component({
@@ -13,7 +14,33 @@ export class TodaySpecialMenuComponent implements OnInit {
 
 
   categories: any;
-  dayName: String;
+  dayName: Object;
+  days: Array<Object> = [
+    {
+      name: "SUNDAY",
+      thumbnail: '/assets/images/sunday.jpg'
+    },
+    {
+      name: "Monday's Menu",
+      thumbnail: '/assets/images/monday.jpg'
+    },
+    {
+      name: "Wednesday' Menu",
+      thumbnail: '/assets/images/wednesday.jpg'
+    },
+    {
+      name: "THURSDAY",
+      thumbnail: '/assets/images/thrusday.jpg'
+    },
+    {
+      name: "FRIDAY",
+      thumbnail: '/assets/images/friday.jpg'
+    },
+    {
+      name: "SATURDAY",
+      thumbnail: '/assets/images/saturday.jpg'
+    },
+  ];
   constructor(private homeService: HomeService, private router: Router) { }
 
   ngOnInit() {
@@ -26,23 +53,17 @@ export class TodaySpecialMenuComponent implements OnInit {
 
   getWeekDayName() {
     var date = new Date();
-    var weekday = new Array(7);
-    weekday[0] = "SUNDAY";
-    weekday[1] = "Monday's Menu";
-    weekday[2] = "Tuesday";
-    weekday[3] = "Wednesday' Menu";
-    weekday[4] = "THURSDAY";
-    weekday[5] = "FRIDAY";
-    weekday[6] = "SATURDAY";
-
-    var dayName = weekday[date.getDay()];
+    var dayName = this.days[date.getDay()];
 
     return dayName;
   }
 
-  goToMenu(id: any) {
+  goToMenu(name: any) {
     debugger;
     const phoneNo = JSON.parse(localStorage.getItem('phoneNumber'));
+    const selectedDay = _.findIndex(this.categories, (category) => { return category.name === name });
+    const selectedMenu = this.categories[selectedDay];
+    const id = selectedMenu._id;
     if (phoneNo) {
       if (phoneNo !== undefined) {
         this.router.navigate(['/home', 'profile', id]);

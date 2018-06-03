@@ -249,7 +249,7 @@ header { position: relative; background: #1e2327; }
 
 /* Home 1 */
 .header{ padding: 0; position: inherit; background: #1e2327; }	
-.slider {  overflow:inherit;padding-top: 0px; }
+.slider {  overflow:inherit;padding-top: 0px; margin-top: 20px; }
 .header .mega-menu > section.menu-list-items { float: none; padding: 6px 0; }
 .header .mega-menu .menu-mobile-collapse-trigger { top: 3px; }
 .header .mega-menu .menu-links { top: 57px; }

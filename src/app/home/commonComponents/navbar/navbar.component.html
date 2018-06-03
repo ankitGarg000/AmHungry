@@ -7,7 +7,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>                        
       </button>
-        <a class="navbar-brand amhungry-logo"  [routerLink]="['../']"><img [ngClass]="{'page-scroll-header-img': isScrolled}" id="logo_img" src="/assets/images/amhungry-logo.png" alt="logo"></a>
+        <a class="navbar-brand amhungry-logo" [routerLink]="['../']"><img [ngClass]="{'page-scroll-header-img': isScrolled}" id="logo_img" src="/assets/images/amhungry-logo.png" alt="logo"></a>
       </div>
       <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav navbar-right">
@@ -18,9 +18,36 @@
           <li class="dropdown">
             <a class="dropdown-toggle" data-toggle="dropdown">Menu&nbsp;<span class="caret"></span></a>
             <ul class="dropdown-menu">
-              <li *ngFor="let category of categories">
-                <a [ngClass]="category.name==dayName?'makeClikable':'disabled'" (click)="category.name==dayName && openMenu(category._id, category.name)">
-                    {{category.name}}
+              <!--<li *ngFor="let category of categories">
+              </li>-->
+              <li>
+                <a [ngClass]="dayName==days[1]?'makeClikable':'disabled'" (click)="dayName==days[1] && openMenu(days[1])">
+                    Monday's Menu
+                </a>
+              </li>
+              <li>
+                <a [ngClass]="dayName==days[3]?'makeClikable':'disabled'" (click)="dayName==days[3] && openMenu(days[3])">
+                    Wednesday's Menu
+                </a>
+              </li>
+              <li>
+                <a [ngClass]="dayName=='THURSDAY'?'makeClikable':'disabled'" (click)="dayName=='THURSDAY' && openMenu('THURSDAY')">
+                    THURSDAY
+                </a>
+              </li>
+              <li>
+                <a [ngClass]="dayName=='FRIDAY'?'makeClikable':'disabled'" (click)="dayName=='FRIDAY' && openMenu('FRIDAY')">
+                    FRIDAY
+                </a>
+              </li>
+              <li>
+                <a [ngClass]="dayName=='SATURDAY'?'makeClikable':'disabled'" (click)="dayName=='SATURDAY' && openMenu('SATURDAY')">
+                    SATURDAY
+                </a>
+              </li>
+              <li>
+                <a [ngClass]="dayName=='SUNDAY' ?'makeClikable':'disabled'" (click)="dayName=='SUNDAY' && openMenu('SUNDAY')">
+                    SUNDAY
                 </a>
               </li>
             </ul>
