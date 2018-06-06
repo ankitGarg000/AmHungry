@@ -33,7 +33,7 @@ export class NavbarComponent implements OnInit {
     "SUNDAY",
     "Monday's Menu",
     "Tuesday",
-    "Wednesday' Menu",
+    "Wednesday's Menu",
     "THURSDAY",
     "FRIDAY",
     "SATURDAY"

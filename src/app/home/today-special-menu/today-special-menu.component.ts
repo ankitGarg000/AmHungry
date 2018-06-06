@@ -25,7 +25,11 @@ export class TodaySpecialMenuComponent implements OnInit {
       thumbnail: '/assets/images/monday.jpg'
     },
     {
-      name: "Wednesday' Menu",
+      name: "Tuesday",
+      thumbnail: '/assets/images/wednesday.jpg'
+    },
+    {
+      name: "Wednesday's Menu",
       thumbnail: '/assets/images/wednesday.jpg'
     },
     {
@@ -52,6 +56,7 @@ export class TodaySpecialMenuComponent implements OnInit {
   }
 
   getWeekDayName() {
+    debugger;
     var date = new Date();
     var dayName = this.days[date.getDay()];
 

@@ -772,7 +772,7 @@ var NavbarComponent = (function () {
             "SUNDAY",
             "Monday's Menu",
             "Tuesday",
-            "Wednesday' Menu",
+            "Wednesday's Menu",
             "THURSDAY",
             "FRIDAY",
             "SATURDAY"
@@ -1715,7 +1715,7 @@ var NavbarProfileComponent = (function () {
         weekday[0] = "SUNDAY";
         weekday[1] = "Monday's Menu";
         weekday[2] = "Tuesday";
-        weekday[3] = "Wednesday' Menu";
+        weekday[3] = "Wednesday's Menu";
         weekday[4] = "THURSDAY";
         weekday[5] = "FRIDAY";
         weekday[6] = "SATURDAY";
@@ -2276,7 +2276,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/home/today-special-menu/today-special-menu.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<!--=================================\nspecial-menu -->\n<section class=\"slider\">\n  <div class=\"row\">\n    <div class=\"col-lg-12 col-md-12\">\n      <div class=\"section-title text-center\">\n        <div class=\"title-separator\">\n          <div class=\"knife \">\n                <img src=\"/assets/images/knife.png\" class=\"img-responsive\">\n              </div>\n        </div>\n        <h2 class=\"text-white\"> <span class=\"text-orange\">Our </span> Special Menu</h2>\n        <p class=\"text-white\">We serve a daily changing menu</p>\n      </div>\n    </div>\n  </div>\n  <div class=\"row\">\n    <div *ngFor=\"let day of days;let i=index\" class=\"col-xs-12 col-sm-6 col-md-6 col-lg-3\">\n      <div *ngIf =\"i<=3\" (click)=\"dayName.name===day.name && goToMenu(day.name)\" [ngClass]=\"dayName.name===day.name ?'activeMenu':'menu'\">\n        <div [ngClass]=\"dayName.name===day.name ?'rotateImage':'menuImage'\">\n          <img [src]=\"day.thumbnail\" />\n        </div>\n        <div [ngClass]=\"dayName.name===day.name?'animateName':'menuName'\">\n          <p>{{day.name}}</p>\n        </div>\n      </div>\n    </div>\n  </div>\n  <div class=\"row sat-sunday-menu\">\n    <div class=\"col-xs-12 col-sm-0 col-md-0 col-lg-3\">\n    </div>\n    <div *ngFor=\"let day of days;let i=index\" class=\"col-xs-12 col-sm-6 col-md-6 col-lg-3\">\n      <div *ngIf =\"i>=4\" (click)=\"dayName.name===day.name && goToMenu(day.name)\" [ngClass]=\"dayName.name===day.name ?'activeMenu':'menu'\">\n        <div [ngClass]=\"dayName.name===day.name ?'rotateImage':'menuImage'\">\n          <img [src]=\"day.thumbnail\" />\n        </div>\n        <div [ngClass]=\"dayName.name===day.name?'animateName':'menuName'\">\n          <p>{{day.name}}</p>\n        </div>\n      </div>\n    </div>\n    <div class=\"col-xs-12 col-sm-6 col-md-3 col-lg-3\">\n    </div>\n  </div>\n\n\n\n</section>\n<!--=================================\nspecial-menu -->"
+module.exports = "<!--=================================\nspecial-menu -->\n<section class=\"slider\">\n  <div class=\"row\">\n    <div class=\"col-lg-12 col-md-12\">\n      <div class=\"section-title text-center\">\n        <div class=\"title-separator\">\n          <div class=\"knife \">\n            <img src=\"/assets/images/knife.png\" class=\"img-responsive\">\n          </div>\n        </div>\n        <h2 class=\"text-white\"> <span class=\"text-orange\">Our </span> Special Menu</h2>\n        <p class=\"text-white\">We serve a daily changing menu</p>\n      </div>\n    </div>\n  </div>\n  <div class=\"row\">\n    <div *ngFor=\"let day of days;let i=index\">\n      <div *ngIf=\"i<=4 && day.name !== 'Tuesday'\" class=\"col-xs-12 col-sm-6 col-md-6 col-lg-3\">\n        <div (click)=\"dayName.name===day.name && goToMenu(day.name)\" [ngClass]=\"dayName.name===day.name ?'activeMenu':'menu'\">\n          <div [ngClass]=\"dayName.name===day.name ?'rotateImage':'menuImage'\">\n            <img [src]=\"day.thumbnail\" />\n          </div>\n          <div [ngClass]=\"dayName.name===day.name?'animateName':'menuName'\">\n            <p>{{day.name}}</p>\n          </div>\n        </div>\n      </div>\n    </div>\n  </div>\n  <div class=\"row sat-sunday-menu\">\n    <div class=\"col-xs-12 col-sm-0 col-md-0 col-lg-3\">\n    </div>\n    <div *ngFor=\"let day of days;let i=index\">\n      <div *ngIf=\"i>=5\" class=\"col-xs-12 col-sm-6 col-md-6 col-lg-3\">\n        <div (click)=\"dayName.name===day.name && goToMenu(day.name)\" [ngClass]=\"dayName.name===day.name ?'activeMenu':'menu'\">\n          <div [ngClass]=\"dayName.name===day.name ?'rotateImage':'menuImage'\">\n            <img [src]=\"day.thumbnail\" />\n          </div>\n          <div [ngClass]=\"dayName.name===day.name?'animateName':'menuName'\">\n            <p>{{day.name}}</p>\n          </div>\n        </div>\n      </div>\n    </div>\n    <!--<div *ngFor=\"let day of days;let i=index\">\n      <div *ngIf=\"i>=5\" (click)=\"dayName.name===day.name && goToMenu(day.name)\" [ngClass]=\"dayName.name===day.name ?'activeMenu':'menu'\">\n        <div [ngClass]=\"dayName.name===day.name ?'rotateImage':'menuImage'\">\n          <img [src]=\"day.thumbnail\" />\n        </div>\n        <div [ngClass]=\"dayName.name===day.name?'animateName':'menuName'\">\n          <p>{{day.name}}</p>\n        </div>\n      </div>\n    </div>-->\n    <div class=\"col-xs-12 col-sm-6 col-md-3 col-lg-3\">\n    </div>\n  </div>\n\n\n\n</section>\n<!--=================================\nspecial-menu -->"
 
 /***/ }),
 
@@ -2317,7 +2317,11 @@ var TodaySpecialMenuComponent = (function () {
                 thumbnail: '/assets/images/monday.jpg'
             },
             {
-                name: "Wednesday' Menu",
+                name: "Tuesday",
+                thumbnail: '/assets/images/wednesday.jpg'
+            },
+            {
+                name: "Wednesday's Menu",
                 thumbnail: '/assets/images/wednesday.jpg'
             },
             {
@@ -2343,6 +2347,7 @@ var TodaySpecialMenuComponent = (function () {
         this.dayName = this.getWeekDayName();
     };
     TodaySpecialMenuComponent.prototype.getWeekDayName = function () {
+        debugger;
         var date = new Date();
         var dayName = this.days[date.getDay()];
         return dayName;

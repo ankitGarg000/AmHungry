@@ -6,8 +6,8 @@ special-menu -->
       <div class="section-title text-center">
         <div class="title-separator">
           <div class="knife ">
-                <img src="/assets/images/knife.png" class="img-responsive">
-              </div>
+            <img src="/assets/images/knife.png" class="img-responsive">
+          </div>
         </div>
         <h2 class="text-white"> <span class="text-orange">Our </span> Special Menu</h2>
         <p class="text-white">We serve a daily changing menu</p>
@@ -15,13 +15,15 @@ special-menu -->
     </div>
   </div>
   <div class="row">
-    <div *ngFor="let day of days;let i=index" class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
-      <div *ngIf ="i<=3" (click)="dayName.name===day.name && goToMenu(day.name)" [ngClass]="dayName.name===day.name ?'activeMenu':'menu'">
-        <div [ngClass]="dayName.name===day.name ?'rotateImage':'menuImage'">
-          <img [src]="day.thumbnail" />
-        </div>
-        <div [ngClass]="dayName.name===day.name?'animateName':'menuName'">
-          <p>{{day.name}}</p>
+    <div *ngFor="let day of days;let i=index">
+      <div *ngIf="i<=4 && day.name !== 'Tuesday'" class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
+        <div (click)="dayName.name===day.name && goToMenu(day.name)" [ngClass]="dayName.name===day.name ?'activeMenu':'menu'">
+          <div [ngClass]="dayName.name===day.name ?'rotateImage':'menuImage'">
+            <img [src]="day.thumbnail" />
+          </div>
+          <div [ngClass]="dayName.name===day.name?'animateName':'menuName'">
+            <p>{{day.name}}</p>
+          </div>
         </div>
       </div>
     </div>
@@ -29,8 +31,20 @@ special-menu -->
   <div class="row sat-sunday-menu">
     <div class="col-xs-12 col-sm-0 col-md-0 col-lg-3">
     </div>
-    <div *ngFor="let day of days;let i=index" class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
-      <div *ngIf ="i>=4" (click)="dayName.name===day.name && goToMenu(day.name)" [ngClass]="dayName.name===day.name ?'activeMenu':'menu'">
+    <div *ngFor="let day of days;let i=index">
+      <div *ngIf="i>=5" class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
+        <div (click)="dayName.name===day.name && goToMenu(day.name)" [ngClass]="dayName.name===day.name ?'activeMenu':'menu'">
+          <div [ngClass]="dayName.name===day.name ?'rotateImage':'menuImage'">
+            <img [src]="day.thumbnail" />
+          </div>
+          <div [ngClass]="dayName.name===day.name?'animateName':'menuName'">
+            <p>{{day.name}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--<div *ngFor="let day of days;let i=index">
+      <div *ngIf="i>=5" (click)="dayName.name===day.name && goToMenu(day.name)" [ngClass]="dayName.name===day.name ?'activeMenu':'menu'">
         <div [ngClass]="dayName.name===day.name ?'rotateImage':'menuImage'">
           <img [src]="day.thumbnail" />
         </div>
@@ -38,7 +52,7 @@ special-menu -->
           <p>{{day.name}}</p>
         </div>
       </div>
-    </div>
+    </div>-->
     <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
     </div>
   </div>

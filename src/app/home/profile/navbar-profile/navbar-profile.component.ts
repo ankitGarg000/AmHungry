@@ -72,7 +72,7 @@ export class NavbarProfileComponent implements OnInit {
     weekday[0] = "SUNDAY";
     weekday[1] = "Monday's Menu";
     weekday[2] = "Tuesday";
-    weekday[3] = "Wednesday' Menu";
+    weekday[3] = "Wednesday's Menu";
     weekday[4] = "THURSDAY";
     weekday[5] = "FRIDAY";
     weekday[6] = "SATURDAY";
