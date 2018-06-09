@@ -77,7 +77,7 @@ export class NavbarProfileComponent implements OnInit {
     weekday[5] = "FRIDAY";
     weekday[6] = "SATURDAY";
 
-    var dayName = weekday[date.getDay()];
+    var dayName = weekday[date.getDay()].toLowerCase();
 
     return dayName;
   }
@@ -92,7 +92,8 @@ export class NavbarProfileComponent implements OnInit {
   }
 
   openMenu(name: String) {
-    const selectedDay = _.findIndex(this.categories, (category) => { return category.name === name });
+    const todayDayName = name.toLowerCase();
+    const selectedDay = _.findIndex(this.categories, (category) => { return _.includes(category.name.toLowerCase(), name) });
     const selectedMenu = this.categories[selectedDay];
     this.homeService.sendSubCategoryId(selectedMenu._id);
     this.router.navigate(['/home/profile', selectedMenu._id]);

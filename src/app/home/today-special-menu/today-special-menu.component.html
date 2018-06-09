@@ -17,11 +17,11 @@ special-menu -->
   <div class="row">
     <div *ngFor="let day of days;let i=index">
       <div *ngIf="i<=4 && day.name !== 'Tuesday'" class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
-        <div (click)="dayName.name===day.name && goToMenu(day.name)" [ngClass]="dayName.name===day.name ?'activeMenu':'menu'">
-          <div [ngClass]="dayName.name===day.name ?'rotateImage':'menuImage'">
+        <div (click)="dayName.name.toLowerCase()===day.name.toLowerCase() && goToMenu(day.name.toLowerCase())" [ngClass]="dayName.name.toLowerCase()===day.name.toLowerCase() ?'activeMenu':'menu'">
+          <div [ngClass]="dayName.name.toLowerCase()===day.name.toLowerCase() ?'rotateImage':'menuImage'">
             <img [src]="day.thumbnail" />
           </div>
-          <div [ngClass]="dayName.name===day.name?'animateName':'menuName'">
+          <div [ngClass]="dayName.name.toLowerCase()===day.name.toLowerCase()?'animateName':'menuName'">
             <p>{{day.name}}</p>
           </div>
         </div>
@@ -33,11 +33,11 @@ special-menu -->
     </div>
     <div *ngFor="let day of days;let i=index">
       <div *ngIf="i>=5" class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
-        <div (click)="dayName.name===day.name && goToMenu(day.name)" [ngClass]="dayName.name===day.name ?'activeMenu':'menu'">
-          <div [ngClass]="dayName.name===day.name ?'rotateImage':'menuImage'">
+        <div (click)="dayName.name.toLowerCase()===day.name.toLowerCase() && goToMenu(day.name.toLowerCase())" [ngClass]="dayName.name.toLowerCase()===day.name.toLowerCase() ?'activeMenu':'menu'">
+          <div [ngClass]="dayName.name.toLowerCase()===day.name.toLowerCase() ?'rotateImage':'menuImage'">
             <img [src]="day.thumbnail" />
           </div>
-          <div [ngClass]="dayName.name===day.name?'animateName':'menuName'">
+          <div [ngClass]="dayName.name.toLowerCase()===day.name.toLowerCase()?'animateName':'menuName'">
             <p>{{day.name}}</p>
           </div>
         </div>

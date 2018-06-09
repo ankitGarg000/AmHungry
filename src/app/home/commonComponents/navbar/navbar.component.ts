@@ -64,7 +64,7 @@ export class NavbarComponent implements OnInit {
   getWeekDayName() {
     var date = new Date();
 
-    var dayName = this.days[date.getDay()];
+    var dayName = this.days[date.getDay()].toLowerCase();
 
     return dayName;
   }
@@ -82,8 +82,10 @@ export class NavbarComponent implements OnInit {
     }
   }
 
-  openMenu(name: any) {
-    const selectedDay = _.findIndex(this.categories, (category) => { return category.name === name });
+  openMenu(name: String) {
+    debugger;
+    const todayDayName = name.toLowerCase();
+    const selectedDay = _.findIndex(this.categories, (category) => { return _.includes(category.name.toLowerCase(), name) });
     const selectedMenu = this.categories[selectedDay];
     this.homeService.sendSubCategoryId(selectedMenu._id);
     this.router.navigate(['/home', selectedMenu._id]);

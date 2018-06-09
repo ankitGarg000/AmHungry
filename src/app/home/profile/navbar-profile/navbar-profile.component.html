@@ -20,7 +20,15 @@
             <ul class="dropdown-menu">
               <!--<li *ngFor="let category of categories">
               </li>-->
-              <li>
+              <li *ngFor="let day of days;let i=index">
+                <a *ngIf="day !== 'Tuesday'" (click)="dayName==day.toLowerCase() && openMenu(day.toLowerCase())" [ngClass]="dayName==day.toLowerCase()?'makeClikable':'disabled'">
+                    {{day}}
+                  </a>
+                <!--<a [ngClass]="dayName==days[1].toLowerC?'makeClikable':'disabled'" (click)="dayName==days[1] && openMenu(days[1])">
+                    Monday's Menu
+                </a>-->
+              </li>
+              <!--<li>
                 <a [ngClass]="dayName==days[1]?'makeClikable':'disabled'" (click)="dayName==days[1] && openMenu(days[1])">
                     Monday's Menu
                 </a>
@@ -49,7 +57,7 @@
                 <a [ngClass]="dayName=='SUNDAY' ?'makeClikable':'disabled'" (click)="dayName=='SUNDAY' && openMenu('SUNDAY')">
                     SUNDAY
                 </a>
-              </li>
+              </li>-->
             </ul>
           </li>
           <li><a routerLinkActive="active" href="javascript:void(0)" [routerLink]="['./', 'about']">About us</a>
@@ -59,7 +67,6 @@
       </div>
     </div>
   </nav>
-  <img (click)="goToCartItems()" id="cart" src="/assets/images/shopping_cart.png"
-  />
+  <img (click)="goToCartItems()" id="cart" src="/assets/images/shopping_cart.png" />
   <p *ngIf="existsOrder > 0" id="noOfItems">{{existsOrder}}</p>
 </header>

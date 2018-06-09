@@ -64,9 +64,9 @@ export class TodaySpecialMenuComponent implements OnInit {
   }
 
   goToMenu(name: any) {
-    debugger;
+    const todayDayName = name.toLowerCase();
     const phoneNo = JSON.parse(localStorage.getItem('phoneNumber'));
-    const selectedDay = _.findIndex(this.categories, (category) => { return category.name === name });
+    const selectedDay = _.findIndex(this.categories, (category) => { return _.includes(category.name.toLowerCase(), todayDayName) });
     const selectedMenu = this.categories[selectedDay];
     const id = selectedMenu._id;
     if (phoneNo) {
