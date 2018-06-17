@@ -123,6 +123,10 @@
 .resend {
     float: right;
 }
+
+.amhungry-logo > img {
+    width: 120px !important;
+}
 @media screen and (max-width: 767px) {
     .header {
         position: fixed;
@@ -130,6 +134,11 @@
     }
     .header img {
         width: 75px;
+    }
+
+
+    .amhungry-logo > img {
+        width: 104px !important;
     }
     .navbar-toggle{
         margin: 23px;
@@ -154,10 +163,6 @@
         right: 6px;
         top: 6px;
     }
-}
-
-.amhungry-logo > img {
-    width: 120px !important;
 }
 
 /*@media screen and (max-width: 480px){

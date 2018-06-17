@@ -83,7 +83,6 @@ export class NavbarComponent implements OnInit {
   }
 
   openMenu(name: String) {
-    debugger;
     const todayDayName = name.toLowerCase();
     const selectedDay = _.findIndex(this.categories, (category) => { return _.includes(category.name.toLowerCase(), name) });
     const selectedMenu = this.categories[selectedDay];

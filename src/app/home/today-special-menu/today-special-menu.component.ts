@@ -56,7 +56,6 @@ export class TodaySpecialMenuComponent implements OnInit {
   }
 
   getWeekDayName() {
-    debugger;
     var date = new Date();
     var dayName = this.days[date.getDay()];
 
